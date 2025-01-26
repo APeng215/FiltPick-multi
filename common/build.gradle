@@ -11,8 +11,17 @@ minecraft {
     }
 }
 
+repositories {
+    mavenCentral()
+    maven {
+        name = "Fuzs Mod Resources"
+        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+    }
+}
+
 dependencies {
     compileOnly group:'org.spongepowered', name:'mixin', version:'0.8.5'
+    api "fuzs.forgeconfigapiport:forgeconfigapiport-common-forgeapi:${forge_config_api_port_version}"
 }
 
 configurations {

@@ -1,16 +1,16 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.example.examplemod.mixin",
-  "refmap": "${mod_id}.refmap.json",
-  "compatibilityLevel": "JAVA_21",
-  "mixins": [],
-  "client": [
-    "MixinMinecraft"
+  "package": "com.apeng.filtpick.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ItemEntityMixin",
+    "ServerPlayerEntityMixin"
   ],
-  "server": [],
+  "client": [
+    "InventoryScreenMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
 }
-

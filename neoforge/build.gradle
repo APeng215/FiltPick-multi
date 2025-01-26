@@ -33,6 +33,15 @@ runs {
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
+repositories {
+    mavenCentral()
+    maven {
+        name = "Fuzs Mod Resources"
+        url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/"
+    }
+}
+
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
+    api "fuzs.forgeconfigapiport:forgeconfigapiport-neoforge:${forge_config_api_port_version}"
 }
