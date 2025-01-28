@@ -1,7 +1,7 @@
 package com.apeng.filtpick.network;
 
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.server.level.ServerPlayer;
 
 public interface NetworkHandler {
 
@@ -23,6 +23,5 @@ public interface NetworkHandler {
 
     void sendToServer(CustomPacketPayload packetPayload);
 
-    void sendToPlayer(CustomPacketPayload packetPayload, Player player);
-
+    void sendToPlayer(CustomPacketPayload packetPayload, ServerPlayer player);
 }

@@ -91,7 +91,7 @@ public abstract class InventoryScreenMixin extends EffectRenderingInventoryScree
     @Unique
     private void initFiltPickEntryButton() {
         calculateEntryButtonPos();
-        filtPickEntryButton = new LegacyTexturedButton(filtPickEntryButtonPosX, filtPickEntryButtonPosY, 20, 18, 0, 0, 19, FILTPICK_ENTRY_TEXTURE, button -> Common.networkHandler.sendToServer(new OpenFiltPickScreenC2SPacket()));
+        filtPickEntryButton = new LegacyTexturedButton(filtPickEntryButtonPosX, filtPickEntryButtonPosY, 20, 18, 0, 0, 19, FILTPICK_ENTRY_TEXTURE, button -> Common.getNetworkHandler().sendToServer(new OpenFiltPickScreenC2SPacket()));
         setTooltip2EntryButton();
     }
 
@@ -100,8 +100,8 @@ public abstract class InventoryScreenMixin extends EffectRenderingInventoryScree
      */
     @Unique
     private void calculateEntryButtonPos() {
-        filtPickEntryButtonPosX = this.leftPos + 104 + 23 + Common.CLIENT_CONFIG.buttonOffsets.get(FiltPickClientConfig.ButtonName.ENTRY_BUTTON).horizontalOffset().get();
-        filtPickEntryButtonPosY = this.height / 2 - 22 + Common.CLIENT_CONFIG.buttonOffsets.get(FiltPickClientConfig.ButtonName.ENTRY_BUTTON).verticalOffset().get();
+        filtPickEntryButtonPosX = this.leftPos + 104 + 23 + Common.getClientConfig().buttonOffsets.get(FiltPickClientConfig.ButtonName.ENTRY_BUTTON).horizontalOffset().get();
+        filtPickEntryButtonPosY = this.height / 2 - 22 + Common.getClientConfig().buttonOffsets.get(FiltPickClientConfig.ButtonName.ENTRY_BUTTON).verticalOffset().get();
     }
 
     /**
@@ -109,8 +109,8 @@ public abstract class InventoryScreenMixin extends EffectRenderingInventoryScree
      */
     @Unique
     private void calculateRecipeButtonPos() {
-        recipeButtonPosX = this.leftPos + 104 + Common.CLIENT_CONFIG.buttonOffsets.get(FiltPickClientConfig.ButtonName.RECIPE_BUTTON).horizontalOffset().get();
-        recipeButtonPosY = this.height / 2 - 22 + Common.CLIENT_CONFIG.buttonOffsets.get(FiltPickClientConfig.ButtonName.RECIPE_BUTTON).verticalOffset().get();
+        recipeButtonPosX = this.leftPos + 104 + Common.getClientConfig().buttonOffsets.get(FiltPickClientConfig.ButtonName.RECIPE_BUTTON).horizontalOffset().get();
+        recipeButtonPosY = this.height / 2 - 22 + Common.getClientConfig().buttonOffsets.get(FiltPickClientConfig.ButtonName.RECIPE_BUTTON).verticalOffset().get();
     }
 
     @Unique

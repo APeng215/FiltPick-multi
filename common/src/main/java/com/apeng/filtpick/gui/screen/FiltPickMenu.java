@@ -32,16 +32,16 @@ public class FiltPickMenu extends AbstractContainerMenu {
 
     // For client side
     public FiltPickMenu(int syncId, Inventory playerInventory) {
-        this(syncId, playerInventory, new SimpleContainer(Common.SERVER_CONFIG.CONTAINER_ROW_COUNT.get() * 9), new SimpleContainerData(2));
+        this(syncId, playerInventory, new SimpleContainer(Common.getServerConfig().CONTAINER_ROW_COUNT.get() * 9), new SimpleContainerData(2));
     }
 
     // For server side
     public FiltPickMenu(int syncId, Inventory playerInventory, Container filtList, ContainerData propertyDelegate) {
-        super(Common.filtPickMenuMenuType, syncId);
+        super(Common.getFiltpickMenuType(), syncId);
         this.propertyDelegate = propertyDelegate;
         this.playerInventory = playerInventory;
         this.filtList = filtList;
-        this.MAX_DISPLAYED_ROW_OFFSET = Math.max(0, getActualRowNum() - Common.SERVER_CONFIG.FILTLIST_DISPLAYED_ROW_COUNT.get());
+        this.MAX_DISPLAYED_ROW_OFFSET = Math.max(0, getActualRowNum() - Common.getServerConfig().FILTLIST_DISPLAYED_ROW_COUNT.get());
         addAllSlots(playerInventory, filtList);
         addDataSlots(propertyDelegate);
     }
@@ -57,7 +57,7 @@ public class FiltPickMenu extends AbstractContainerMenu {
     }
 
     private void addAllSlots(Inventory playerInventory, Container filtList) {
-        int pixelOffset = (Common.SERVER_CONFIG.FILTLIST_DISPLAYED_ROW_COUNT.get() - 4) * 18;
+        int pixelOffset = (Common.getServerConfig().FILTLIST_DISPLAYED_ROW_COUNT.get() - 4) * 18;
         addHotBarSlots(playerInventory, pixelOffset);
         addInventorySlot(playerInventory, pixelOffset);
         // FiltList must be added at last for #inventorySlotClicked working properly.
@@ -100,7 +100,7 @@ public class FiltPickMenu extends AbstractContainerMenu {
     }
 
     private void addFiltList(Container filtList) {
-        for (int row = 0; row < Common.SERVER_CONFIG.FILTLIST_DISPLAYED_ROW_COUNT.get(); row++) {
+        for (int row = 0; row < Common.getServerConfig().FILTLIST_DISPLAYED_ROW_COUNT.get(); row++) {
             for (int col = 0; col < 9; col++) {
                 int index = row * 9 + col + displayedRowOffset * 9;
                 if (index >= filtList.getContainerSize()) {
@@ -274,7 +274,7 @@ public class FiltPickMenu extends AbstractContainerMenu {
      */
     private boolean synDisplayedRowOffsetWithServer() {
         if (isClientSide()) {
-            Common.networkHandler.sendToServer(new SynMenuFieldC2SPacket(displayedRowOffset));
+            Common.getNetworkHandler().sendToServer(new SynMenuFieldC2SPacket(displayedRowOffset));
             return true;
         }
         return false;

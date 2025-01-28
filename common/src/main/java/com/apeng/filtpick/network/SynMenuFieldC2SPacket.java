@@ -19,7 +19,7 @@ public record SynMenuFieldC2SPacket(int displayedRowStartIndex) implements Custo
             SynMenuFieldC2SPacket::new
     );
 
-    public static void handler(final SynMenuFieldC2SPacket data, final Player sender) {
+    public static void handle(final SynMenuFieldC2SPacket data, final Player sender) {
         if (sender.containerMenu instanceof FiltPickMenu filtPickMenu) {
             filtPickMenu.setDisplayedRowOffsetAndUpdate(data.displayedRowStartIndex);
             filtPickMenu.broadcastFullState(); // Respond is important, making sure everything is synchronized.
