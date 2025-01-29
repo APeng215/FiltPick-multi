@@ -29,8 +29,8 @@ versionRange = "${minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
-# Features are specific properties of the game environment, that you may want to declare you require. This example declares
+# Features are specific properties of the game environment, that you may want to declare you require. This apeng declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
-# stop your mod loading on the server for example.
+# stop your mod loading on the server for apeng.
 #[features.${mod_id}]
 #openGLVersion="[3.2,)"

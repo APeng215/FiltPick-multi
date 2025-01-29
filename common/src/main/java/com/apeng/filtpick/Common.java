@@ -22,18 +22,18 @@ public class Common {
 
     // Remember to initialize values below in mod loader specific implementation
     private static NetworkHandler NETWORK_HANDLER;
-    private static Supplier<MenuType<FiltPickMenu>> FILTPICK_MENU_TYPE_SUPPLER;
-    private static FiltPickClientConfig CLIENT_CONFIG;
-    private static FiltPickServerConfig SERVER_CONFIG;
+    private static Supplier<MenuType<FiltPickMenu>> FILTPICK_MENU_TYPE_SUPPLIER;
+    private static Supplier<FiltPickClientConfig> CLIENT_CONFIG_SUPPLIER;
+    private static Supplier<FiltPickServerConfig> SERVER_CONFIG_SUPPLIER;
 
     // The loader specific projects are able to import and use any code from the common project. This allows you to
-    // write the majority of your code here and load it from your loader specific projects. This example has some
+    // write the majority of your code here and load it from your loader specific projects. This apeng has some
     // code that gets invoked by the entry point of the loader specific projects.
-    public static void init(NetworkHandler networkHandlerImpl, Supplier<MenuType<FiltPickMenu>> filtPickMenuMenuTypeSuppler, FiltPickClientConfig clientConfig, FiltPickServerConfig serverConfig) {
+    public static void init(NetworkHandler networkHandlerImpl, Supplier<MenuType<FiltPickMenu>> filtPickMenuMenuTypeSuppler, Supplier<FiltPickClientConfig> clientConfigSupplier, Supplier<FiltPickServerConfig> serverConfigSupplier) {
         NETWORK_HANDLER = networkHandlerImpl;
-        FILTPICK_MENU_TYPE_SUPPLER = filtPickMenuMenuTypeSuppler;
-        CLIENT_CONFIG = clientConfig;
-        SERVER_CONFIG = serverConfig;
+        FILTPICK_MENU_TYPE_SUPPLIER = filtPickMenuMenuTypeSuppler;
+        CLIENT_CONFIG_SUPPLIER = clientConfigSupplier;
+        SERVER_CONFIG_SUPPLIER = serverConfigSupplier;
     }
 
     public static NetworkHandler getNetworkHandler() {
@@ -41,14 +41,14 @@ public class Common {
     }
 
     public static MenuType<FiltPickMenu> getFiltpickMenuType() {
-        return FILTPICK_MENU_TYPE_SUPPLER.get();
+        return FILTPICK_MENU_TYPE_SUPPLIER.get();
     }
 
     public static FiltPickClientConfig getClientConfig() {
-        return CLIENT_CONFIG;
+        return CLIENT_CONFIG_SUPPLIER.get();
     }
 
     public static FiltPickServerConfig getServerConfig() {
-        return SERVER_CONFIG;
+        return SERVER_CONFIG_SUPPLIER.get();
     }
 }

@@ -40,11 +40,15 @@ public class FiltPick {
     }
 
     private static void initCommon(ForgeConfigSpec.Builder clientBuilder, ForgeConfigSpec.Builder serverBuilder) {
+        // Init the configs immediately
+        FiltPickClientConfig clientConfig = FiltPickClientConfig.getInstance(clientBuilder);
+        FiltPickServerConfig serverConfig = FiltPickServerConfig.getInstance(serverBuilder);
+
         Common.init(
                 new NetworkHandlerNeoImpl(),
                 MENU_TYPE_SUPPLIER,
-                FiltPickClientConfig.getInstance(clientBuilder),
-                FiltPickServerConfig.getInstance(serverBuilder)
+                () -> clientConfig,
+                () -> serverConfig
         );
     }
 

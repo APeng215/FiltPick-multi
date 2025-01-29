@@ -16,7 +16,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.example.examplemod.ExampleMod"
+            "com.apeng.filtpick.FiltPick"
+        ],
+        "client": [
+            "com.apeng.filtpick.FiltPickClient"
         ]
     },
     "mixins": [

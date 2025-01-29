@@ -18,15 +18,14 @@ public class NetworkHandlerNeoImpl implements NetworkHandler {
         registrar.playToServer(
                 SynMenuFieldC2SPacket.TYPE,
                 SynMenuFieldC2SPacket.STREAM_CODEC,
-                (payload, context) -> {
-                    SynMenuFieldC2SPacket.handle(payload, context.player());
-                }
-        ).playToServer(
+                (payload, context) -> context.enqueueWork(
+                        () -> SynMenuFieldC2SPacket.handle(payload, context.player())
+                )).playToServer(
                 OpenFiltPickScreenC2SPacket.TYPE,
                 OpenFiltPickScreenC2SPacket.STREAM_CODEC,
-                (payload, context) -> {
-                    OpenFiltPickScreenC2SPacket.handle(payload, context.player());
-                }
+                (payload, context) -> context.enqueueWork(
+                        () -> OpenFiltPickScreenC2SPacket.handle(payload, context.player())
+                )
         );
     }
 
