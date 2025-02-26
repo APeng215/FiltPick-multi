@@ -111,6 +111,13 @@ public class FiltPickScreen extends AbstractContainerScreen<FiltPickMenu> {
         }
     }
 
+    @Override
+    public boolean mouseReleased(double $$0, double $$1, int $$2) {
+        this.setFocused(null);
+        this.setFocused(false);
+        return super.mouseReleased($$0, $$1, $$2);
+    }
+
     private boolean scrollBlockDragged(double pMouseX, double pMouseY, int pButton, double pDragX, double pDragY, ContainerScrollBlock scrollBlock) {
         boolean flag = scrollBlock.mouseDragged(pMouseX, pMouseY, pButton, pDragX, pDragY);
         menu.setDisplayedRowOffsetAndUpdate(scrollBlock.getDisplayedRowOffset());
