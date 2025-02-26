@@ -42,7 +42,24 @@ repositories {
     maven {url = "https://maven.fabricmc.net/"}
 }
 
+tasks.withType(Javadoc) {
+    failOnError false
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
 dependencies {
     implementation "net.neoforged:neoforge:${neoforge_version}"
-    api "fuzs.forgeconfigapiport:forgeconfigapiport-neoforge:${forge_config_api_port_version}"
+    implementation "fuzs.forgeconfigapiport:forgeconfigapiport-neoforge:${forge_config_api_port_version}"
+    jarJar(group: 'fuzs.forgeconfigapiport', name: 'forgeconfigapiport-neoforge', version: "${forge_config_api_port_version}")
+}
+
+// Enable the Jar-in-Jar system for your mod
+jarJar.enable()
+
+// Configure the 'jarJar' task
+// 'all' is the default classifier
+tasks.named('jarJar') {
+    // ...
 }
