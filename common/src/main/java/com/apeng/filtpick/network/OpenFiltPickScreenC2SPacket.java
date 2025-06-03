@@ -15,7 +15,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 
 public record OpenFiltPickScreenC2SPacket() implements CustomPacketPayload {
 
-    public static final Type<OpenFiltPickScreenC2SPacket> TYPE = new Type<>(new ResourceLocation(Common.MOD_ID, "open_filtpick_screen"));
+    public static final Type<OpenFiltPickScreenC2SPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(Common.MOD_ID, "open_filtpick_screen"));
 
     public static final StreamCodec<ByteBuf, OpenFiltPickScreenC2SPacket> STREAM_CODEC = StreamCodec.unit(new OpenFiltPickScreenC2SPacket());
 

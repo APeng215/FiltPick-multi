@@ -22,7 +22,7 @@ public class FiltPick implements ModInitializer {
     // SCREEN_HANDLER_TYPE MUST be put in mod main entry (ModInitializer)
     public static final MenuType<FiltPickMenu> FILTPICK_SCREEN_HANDLER_TYPE = Registry.register(
             BuiltInRegistries.MENU,
-            new ResourceLocation(FiltPick.ID, "filtpick_screen"),
+            ResourceLocation.fromNamespaceAndPath(FiltPick.ID, "filtpick_screen"),
             new MenuType<>(FiltPickMenu::new, FeatureFlagSet.of())
     );
     public static FiltPickServerConfig SERVER_CONFIG;

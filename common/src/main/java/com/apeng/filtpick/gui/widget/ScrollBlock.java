@@ -155,8 +155,8 @@ public class ScrollBlock extends AbstractWidget {
 
     public static class ScrollBlockResource {
         // Use guiGraphics#blitSprite to render the block instead of #blit
-        public static final ResourceLocation SPRITE_LOCATION = new ResourceLocation("container/creative_inventory/scroller");
-        public static final ResourceLocation SPRITE_LOCATION_DISABLED = new ResourceLocation("container/creative_inventory/scroller_disabled");
+        public static final ResourceLocation SPRITE_LOCATION = ResourceLocation.tryParse("container/creative_inventory/scroller");
+        public static final ResourceLocation SPRITE_LOCATION_DISABLED = ResourceLocation.tryParse("container/creative_inventory/scroller_disabled");
         public static final int U = 0;
         public static final int V = 0;
         public static final int WIDTH = 12;

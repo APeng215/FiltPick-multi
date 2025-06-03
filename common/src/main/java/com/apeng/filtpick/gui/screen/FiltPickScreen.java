@@ -34,7 +34,7 @@ public class FiltPickScreen extends AbstractContainerScreen<FiltPickMenu> {
     public static final int DESTRUCTION_MODE_BUTTON_ID = 1;
     public static final int CLEAR_BUTTON_ID = 2;
     private static final Style EXPLANATION_STYLE = Style.EMPTY.withColor(ChatFormatting.DARK_GRAY).applyFormats(ChatFormatting.ITALIC);
-    private static final ResourceLocation CONTAINER_BACKGROUND = new ResourceLocation("textures/gui/container/generic_54.png"); // This image includes both container window and inventory window
+    private static final ResourceLocation CONTAINER_BACKGROUND = ResourceLocation.tryParse("textures/gui/container/generic_54.png"); // This image includes both container window and inventory window
     private static final ResourceLocation FILT_MODE_BUTTON_TEXTURE = ResourceLocation.tryBuild(Common.MOD_ID, "gui/filtmode_button.png");
     private static final ResourceLocation DESTRUCTION_BUTTON_TEXTURE = ResourceLocation.tryBuild(Common.MOD_ID, "gui/destruction_button.png");
     private static final ResourceLocation CLEAR_BUTTON_TEXTURE = ResourceLocation.tryBuild(Common.MOD_ID, "gui/clearlist_button.png");
