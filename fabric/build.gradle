@@ -2,6 +2,9 @@ plugins {
     id 'multiloader-loader'
     id 'fabric-loom'
 }
+tasks.withType(Javadoc) {
+    failOnError false
+}
 repositories {
     maven {
         name = "Fuzs Mod Resources"
